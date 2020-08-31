@@ -1,0 +1,395 @@
+<!doctype html>
+<html ng-app>
+<!-- conexão com BD para pegar dados
+    <?php $conn = new mysqli("IP_Servidor", "ADMIN-NOC_DB_USER", "ADMIN-NOC_DB_PASS", "ADMIN-NOC_DB");?>
+-->
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header" id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="../arc/dashboard.php">ADMIN-NOC</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-8">
+<!--                        <div class="dropdown">
+
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown">
+                                Selecione a opção
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#interrupcoes">Interrupções</a> 
+                                <a class="dropdown-item" href="#normalizacao">Normalização</a>
+                                <a class="dropdown-item" href="#alerta">Alerta</a>
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form name="formularioQuedas" id="formularioQuedas">
+                                    <div class="interrupcoes" id="mostraQueda">
+                                        <h5 style="display: inline;">Número evento e Titulo:</h5><br />
+                                        <input type="text" size="60" ng-model="Titulo"
+                                            placeholder="Ex.: #1 NOVA FRIBURGO X CACHOEIRAS DE MACACU">
+                                        <br />
+                                        <h5 style="display: inline;">Data e hora da queda: </h5><br />
+                                        <input id="horaqueda" size="60" type="text" ng-model="horaqueda"
+                                            placeholder="Digite hora da queda">
+                                        <br />
+                                        <h5 style="display: inline;">Capacidade: </h5><br />
+                                        <input type="text" size="60" ng-model="capacidade" placeholder="Ex.: 10Gb">
+                                        <br />
+                                        <h5 style="display: inline;">Owner: </h5><br />
+                                        <input type="text" size="60" ng-model="Owner"
+                                            placeholder="Digite o responsável pelo trecho">
+                                        <br />
+                                        <h5 style="display: inline;">Clientes afetados: </h5><br />
+                                        <input type="text" size="60" ng-model="clientes"
+                                            placeholder="Digite os clientes afetados">
+                                        <br />
+                                        <h5 style="display: inline;">Resumo: </h5><br />
+                                        <textarea type="text" ng-model="resumo" cols="65" rows="5"
+                                            placeholder="Digite informações ou atualizações"></textarea>
+                                        <br />
+                                        <button type="button" class="btn btn-success"
+                                            onclick="copiaParaClipboard(document.getElementById('textoQueda').innerHTML)">
+                                            Copiar texto queda
+                                        </button>
+                                        <button type="button" class="btn btn-danger" type="reset" id="ResetForm">
+                                            Apagar texto queda
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <form name="formularioNormalizacao" id="formularioNormalizacao">
+                                    <div class="normalizacao" id="mostraNormalizacao">
+                                        <h5 style="display: inline;">Número evento e Titulo:</h5><br />
+                                        <input class="inputNormalizacao" type="text" size="60"
+                                            ng-model="Titulonormalizacao"
+                                            placeholder="Ex.: #1 NOVA FRIBURGO X CACHOEIRAS DE MACACU">
+                                        <br />
+                                        <h5 style="display: inline;">Data e hora da normalização: </h5><br />
+                                        <input class="inputNormalizacao" size="60" type="text"
+                                            ng-model="horanormalizacao"
+                                            placeholder="Digite data e hora da normalização">
+                                        <br />
+                                        <h5 style="display: inline;">Capacidade: </h5><br />
+                                        <input class="inputNormalizacao" type="text" size="60" ng-model="capacidade"
+                                            placeholder="Ex.: 10Gb">
+                                        <br />
+                                        <h5 style="display: inline;">Owner: </h5><br />
+                                        <input class="inputNormalizacao" type="text" size="60" ng-model="Owner"
+                                            placeholder="Digite o responsável pelo trecho">
+                                        <br />
+                                        <h5 style="display: inline;">Clientes afetados: </h5><br />
+                                        <input class="inputNormalizacao" type="text" size="60" ng-model="clientes"
+                                            placeholder="Digite os clientes afetados">
+                                        <br />
+                                        <h5 style="display: inline;">Resumo: </h5><br />
+                                        <textarea type="text" ng-model="resumonormalizacao" cols="65" rows="5"
+                                            placeholder="Digite informações ou atualizações"></textarea>
+                                        <br />
+                                        <button type="button" class="btn btn-success"
+                                            onclick="copiaParaClipboard(document.getElementById('textoNormalizacao').innerHTML)">
+                                            Copiar texto normalização
+                                        </button>
+                                        <button type="button" class="btn btn-danger" type="reset" id="ResetForm">
+                                            Apagar texto normalização
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form name="formularioAlerta" id="formularioAlerta">
+                                    <div class="alertas" id="mostraAlerta">
+                                        <h5 style="display: inline;">Alerta:</h5><br />
+                                        <input type="text" size="60" ng-model="Tituloalerta"
+                                            placeholder="Ex.: 1 NOVA FRIBURGO X CACHOEIRAS DE MACACU (ALERTA)">
+                                        <br />
+                                        <h5 style="display: inline;">Resumo: </h5><br />
+                                        <textarea type="text" ng-model="resumoalertas" cols="65" rows="5"
+                                            placeholder="Digite informações ou atualizações"></textarea>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="jumbotron">
+                            <div id="textoPreFormatado">
+                                <h1>Texto para copiar no Whatsapp</h1>
+
+                                <pre id="textoQueda">
+❌ *#{{Titulo}}*
+*Hora da queda*: {{horaqueda}}
+*Capacidade*: {{capacidade}}
+*Owner*: {{Owner}}
+*Clientes afetados*: {{clientes}}
+*Resumo*: {{resumo}}</pre>
+
+                                <pre id="textoNormalizacao">
+✅ *#{{Titulonormalizacao}}* - *NORMALIZADO*
+*Hora da queda*: {{horaqueda}}
+*Hora da normalização*: {{horanormalizacao}}
+*Capacidade*: {{capacidade}}
+*Owner*: {{Owner}}
+*Clientes afetados*: {{clientes}}
+*Resumo*: {{resumonormalizacao}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <form action="PayslipServlet" method="get">
+        Titulo:    <input type="text" name="tituloformnovo" id="tituloformnovo"><br/>
+        Hora da queda:   <input type="text" name="horaquedaformnovo" id="horaquedaformnovo"><br/>
+        Capacidade:  <input type="text" name="capacidadeformnovo" id ="capacidadeformnovo"><br/>
+        Texto para Whatsapp: <span id="result"></span>
+        <br>
+        <input type="button" value="Submit" onClick="pr()">
+      </form>
+
+      <script>
+        function pr() {
+          document.getElementById("result").innerHTML = document.getElementById('horaquedaformnovo').value + "<br> " 
+          + document.getElementById('capacidadeformnovo').value + "<br> " + document.getElementById('tituloformnovo').value;
+        }
+      </script>
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="card">
+        <div class="card-header">
+            <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-256918"
+                href="#card-element-queda">Clique para expandir <b>INTERRUPÇÕES</b></a>
+        </div>
+        <div id="card-element-queda" class="collapse">
+            <div class="card-body">
+                <form name="formularioQuedas" id="formularioQuedas">
+                    <div class="interrupcoes" id="mostraQueda">
+                        <h5 style="display: inline;">Número evento e Titulo:</h5><br />
+                        <input type="text" size="60" ng-model="Titulo"
+                            placeholder="Ex.: #1 NOVA FRIBURGO X CACHOEIRAS DE MACACU">
+                        <br />
+                        <h5 style="display: inline;">Data e hora da queda: </h5><br />
+                        <input id="horaqueda" size="60" type="text" ng-model="horaqueda"
+                            placeholder="Digite hora da queda">
+                        <br />
+                        <h5 style="display: inline;">Capacidade: </h5><br />
+                        <input type="text" size="60" ng-model="capacidade" placeholder="Ex.: 10Gb">
+                        <br />
+                        <h5 style="display: inline;">Owner: </h5><br />
+                        <input type="text" size="60" ng-model="Owner" placeholder="Digite o responsável pelo trecho">
+                        <br />
+                        <h5 style="display: inline;">Clientes afetados: </h5><br />
+                        <input type="text" size="60" ng-model="clientes" placeholder="Digite os clientes afetados">
+                        <br />
+                        <h5 style="display: inline;">Resumo: </h5><br />
+                        <textarea type="text" ng-model="resumo" cols="65" rows="5"
+                            placeholder="Digite informações ou atualizações"></textarea>
+                        <br />
+                        <button type="button" class="btn btn-success"
+                            onclick="copiaParaClipboard(document.getElementById('textoQueda').innerHTML)">
+                            Copiar texto queda
+                        </button>
+                        <button type="button" class="btn btn-danger" type="reset" id="ResetForm">
+                            Apagar texto queda
+                        </button>
+                    </div>
+                    <div id="running-config">
+                        <!-- </form> -->
+                    </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-256918"
+                    href="#card-element-normalizacao">Clique para expandir <b>NORMALIZAÇÃO</b></a>
+            </div>
+            <div id="card-element-normalizacao" class="collapse">
+                <div class="card-body">
+                    <div class="normalizacao" id="mostraNormalizacao">
+                        <h5 style="display: inline;">Número evento e Titulo:</h5><br />
+                        <input class="inputNormalizacao" type="text" size="60" ng-model="Titulonormalizacao"
+                            placeholder="Ex.: #1 NOVA FRIBURGO X CACHOEIRAS DE MACACU">
+                        <br />
+                        <h5 style="display: inline;">Data e hora da normalização: </h5><br />
+                        <input class="inputNormalizacao" size="60" type="text" ng-model="horanormalizacao"
+                            placeholder="Digite data e hora da normalização">
+                        <br />
+                        <h5 style="display: inline;">Capacidade: </h5><br />
+                        <input class="inputNormalizacao" type="text" size="60" ng-model="capacidade"
+                            placeholder="Ex.: 10Gb">
+                        <br />
+                        <h5 style="display: inline;">Owner: </h5><br />
+                        <input class="inputNormalizacao" type="text" size="60" ng-model="Owner"
+                            placeholder="Digite o responsável pelo trecho">
+                        <br />
+                        <h5 style="display: inline;">Clientes afetados: </h5><br />
+                        <input class="inputNormalizacao" type="text" size="60" ng-model="clientes"
+                            placeholder="Digite os clientes afetados">
+                        <br />
+                        <h5 style="display: inline;">Resumo: </h5><br />
+                        <textarea type="text" ng-model="resumonormalizacao" cols="65" rows="5"
+                            placeholder="Digite informações ou atualizações"></textarea>
+                        <br />
+                        <button type="button" class="btn btn-success"
+                            onclick="copiaParaClipboard(document.getElementById('textoNormalizacao').innerHTML)">
+                            Copiar texto normalização
+                        </button>
+                        <button type="button" class="btn btn-danger" type="reset" id="ResetForm">
+                            Apagar texto normalização
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-256918"
+                        href="#card-element-alertas">Clique para expandir <b>ALERTAS</b></a>
+                </div>
+                <div id="card-element-alertas" class="collapse">
+                    <div class="card-body">
+                        <div class="alertas" id="mostraAlerta">
+                            <h5 style="display: inline;">Alerta:</h5><br />
+                            <input type="text" size="60" ng-model="Tituloalerta"
+                                placeholder="Ex.: 1 NOVA FRIBURGO X CACHOEIRAS DE MACACU (ALERTA)">
+                            <br />
+                            <h5 style="display: inline;">Resumo: </h5><br />
+                            <textarea type="text" ng-model="resumoalertas" cols="65" rows="5"
+                                placeholder="Digite informações ou atualizações"></textarea>
+                        </div>
+                    </div>
+                    <pre id="textoAlerta">
+⚠️ *{{Tituloalerta}}* ⚠️
+*Resumo*: {{resumoalertas}}</pre>
+                    <button type="button" class="btn btn-success"
+                        onclick="copiaParaClipboard(document.getElementById('textoAlerta').innerHTML)">
+                        Copiar texto alertas
+                    </button>
+                </div>
+
+
+            </div>
+
+            <div id="running-config">
+                <hr>
+                <h1>Texto para copiar no Whatsapp</h1>
+                <!-- <pre> -->
+
+                <pre id="textoQueda">
+❌ *#{{Titulo}}*
+*Hora da queda*: {{horaqueda}}
+*Capacidade*: {{capacidade}}
+*Owner*: {{Owner}}
+*Clientes afetados*: {{clientes}}
+*Resumo*: {{resumo}}</pre>
+
+                <pre id="textoNormalizacao">
+✅ *#{{Titulonormalizacao}}* - *NORMALIZADO*
+*Hora da queda*: {{horaqueda}}
+*Hora da normalização*: {{horanormalizacao}}
+*Capacidade*: {{capacidade}}
+*Owner*: {{Owner}}
+*Clientes afetados*: {{clientes}}
+*Resumo*: {{resumonormalizacao}}</pre>
+                <!--</pre>-->
+            </div>
+            <hr>
+            <div class="card">
+                <div class="card-header">
+                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-256918"
+                        href="#card-element-encerramento">Clique para expandir texto de encerramento de chamados</a>
+                </div>
+                <div id="card-element-encerramento" class="collapse">
+                    <div class="card-body">
+                        <div id="textoEncerramento">
+                            Normalização: <br>
+                            Causa Raiz: <br>
+                            Localização: <br>
+                            Equipe: <br>
+                            Tratativa: <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="js/jquery.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/scripts.js"></script>
+</body>
+
+</html>

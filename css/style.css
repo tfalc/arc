@@ -1,0 +1,101 @@
+#config {
+  position: relative;
+background-color: whitesmoke;
+}
+
+#mostraQueda {
+  width: 100%;
+  padding: 10px 0;
+  text-align: left;
+  background-color: lightcoral;
+  margin-top: 2px;
+  display: block;
+  background: #F00851;
+  background: -moz-linear-gradient(left, #F00851 0%, #8441A4 100%);
+  background: -webkit-linear-gradient(left, #F00851 0%, #8441A4 100%);
+  background: linear-gradient(to right, #F00851 0%, #8441A4 100%);
+}
+
+#mostraNormalizacao {
+  width: 100%;
+  padding: 10px 0px;
+  text-align: left;
+  background-color: lightgreen;
+  margin-top: 5px;
+  display: block;
+  background: #3BB2B8;
+  background: -moz-linear-gradient(left, #3BB2B8 0%, #42E695 100%);
+  background: -webkit-linear-gradient(left, #3BB2B8 0%, #42E695 100%);
+  background: linear-gradient(to right, #3BB2B8 0%, #42E695 100%);
+}
+
+#mostraAlerta {
+  width: 100%;
+  padding: 10px 0px;
+  text-align: left;
+  background-color: lightgreen;
+  margin-top: 5px;
+  display: block;
+  background: #FCE38A;
+  background: -moz-linear-gradient(left, #FCE38A 0%, #FF881B 100%);
+  background: -webkit-linear-gradient(left, #FCE38A 0%, #FF881B 100%);
+  background: linear-gradient(to right, #FCE38A 0%, #FF881B 100%);
+}
+
+
+#textoEncerramento {
+  width: 100%;
+  padding: 10px 0px;
+  text-align: center;
+  background-color: lightskyblue;
+  margin-top: 5px;
+  display: block;
+  border: 5px double #1C6EA4;
+}
+
+div.blueTable {
+  background-color: #EEEEEE;
+    width: 100%;
+    text-align: left;
+  }
+  .divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
+    padding: 3px 2px;
+  }
+  .divTable.blueTable .divTableBody .divTableCell {
+    font-size: 13px;
+  }
+  .divTable.blueTable .divTableRow:nth-child(even) {
+  background: #D0E4F5;
+  }
+  .divTable.blueTable .divTableHeading {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  }
+  .divTable.blueTable .divTableHeading .divTableHead {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border-left: 2px solid #D0E4F5;
+  }
+  .divTable.blueTable .divTableHeading .divTableHead:first-child {
+    border-left: none;
+  }
+  
+  .blueTable .tableFootStyle {
+    font-size: 14px;
+  }
+  /* DivTable.com */
+  .divTable{ display: table; }
+  .divTableRow { display: table-row; }
+  .divTableHeading { display: table-header-group;}
+  .divTableCell, .divTableHead { display: table-cell;}
+  .divTableHeading { display: table-header-group;}
+  .divTableFoot { display: table-footer-group;}
+  .divTableBody { display: table-row-group;}
+
+  #input{
+    border: none;
+    border-bottom: salmon 1px;
+  }
