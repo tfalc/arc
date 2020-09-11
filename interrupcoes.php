@@ -4,7 +4,7 @@ Data e hora: <input type="text" name="datahora" value="<?php echo $datahora; ?>"
 
 Owner: <input type="text" name="owner" value="<?php echo $owner; ?>">
 
-Owner: <input type="text" name="owner" value="<?php echo $owner; ?>">
+Clientes Afetados: <input type="text" name="owner" value="<?php echo $clientesAfetados; ?>">
 
 Descrição: <textarea name="descricao" rows="5" cols="40"><?php echo $descricao; ?></textarea>
 
