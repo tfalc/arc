@@ -40,4 +40,14 @@
                     document.getElementById('formularioQuedas').reset();
                 });
 
+                $(document).on('click', "#ResetFormNormalizacao", function() {
+                    // Resetar formulario
+                    document.getElementById('formularioNormalizacao').reset();
+                });
+
+                $(document).on('click', "#ResetFormAlerta", function() {
+                    // Resetar formulario
+                    document.getElementById('formularioAlerta').reset();
+                });
+
                 $('.dropdown-toggle').dropdown();

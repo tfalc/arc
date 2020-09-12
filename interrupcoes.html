@@ -90,7 +90,7 @@
                                     <div class="normalizacao" id="mostraNormalizacao">
                                         <h5 style="display: inline;">Número evento e Titulo:</h5><br />
                                         <input class="inputNormalizacao" type="text" size="60"
-                                            ng-model="Titulonormalizacao"
+                                            ng-model="Titulo"
                                             placeholder="Ex.: #1 NOVA FRIBURGO X CACHOEIRAS DE MACACU">
                                         <br />
                                         <h5 style="display: inline;">Data e hora da normalização: </h5><br />
@@ -118,7 +118,8 @@
                                             onclick="copiaParaClipboard(document.getElementById('textoNormalizacao').innerHTML)">
                                             Copiar texto normalização
                                         </button>
-                                        <button type="button" class="btn btn-danger" type="reset" id="ResetForm">
+                                        <button type="button" class="btn btn-danger" type="reset"
+                                            id="ResetFormNormalizacao">
                                             Apagar texto normalização
                                         </button>
                                     </div>
@@ -137,7 +138,14 @@
                                         <textarea type="text" ng-model="resumoalertas" cols="65" rows="5"
                                             placeholder="Digite informações ou atualizações"></textarea>
                                     </div>
-
+                                    <button type="button" class="btn btn-success"
+                                        onclick="copiaParaClipboard(document.getElementById('textoAlerta').innerHTML)">
+                                        Copiar texto alertas
+                                    </button>
+                                    <button type="button" class="btn btn-danger" type="reset"
+                                        id="ResetFormAlerta">
+                                        Apagar texto alerta
+                                    </button>
                                 </form>
                             </div>
                         </div>
