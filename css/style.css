@@ -5,52 +5,52 @@ background-color: whitesmoke;
 
 #mostraQueda {
   width: 100%;
-  padding: 10px 0;
+  padding: 5px 2px;
   text-align: left;
-  background-color: lightcoral;
   margin-top: 2px;
   display: block;
+  /*background-color: lightcoral;
   background: #F00851;
   background: -moz-linear-gradient(left, #F00851 0%, #8441A4 100%);
   background: -webkit-linear-gradient(left, #F00851 0%, #8441A4 100%);
-  background: linear-gradient(to right, #F00851 0%, #8441A4 100%);
+  background: linear-gradient(to right, #F00851 0%, #8441A4 100%);*/
 }
 
 #mostraNormalizacao {
   width: 100%;
-  padding: 10px 0px;
+  padding: 5px 2px;
   text-align: left;
-  background-color: lightgreen;
-  margin-top: 5px;
+  margin-top: 2px;
   display: block;
+  /*background-color: lightgreen;
   background: #3BB2B8;
   background: -moz-linear-gradient(left, #3BB2B8 0%, #42E695 100%);
   background: -webkit-linear-gradient(left, #3BB2B8 0%, #42E695 100%);
-  background: linear-gradient(to right, #3BB2B8 0%, #42E695 100%);
+  background: linear-gradient(to right, #3BB2B8 0%, #42E695 100%);*/
 }
 
 #mostraAlerta {
   width: 100%;
-  padding: 10px 0px;
+  padding: 5px 2px;
   text-align: left;
-  background-color: lightgreen;
   margin-top: 5px;
   display: block;
+  /*background-color: lightgreen;
   background: #FCE38A;
   background: -moz-linear-gradient(left, #FCE38A 0%, #FF881B 100%);
   background: -webkit-linear-gradient(left, #FCE38A 0%, #FF881B 100%);
-  background: linear-gradient(to right, #FCE38A 0%, #FF881B 100%);
+  background: linear-gradient(to right, #FCE38A 0%, #FF881B 100%);*/
 }
 
 
 #textoEncerramento {
   width: 100%;
   padding: 10px 0px;
-  text-align: center;
-  background-color: lightskyblue;
+  text-align: justify;
+  background-color: rgb(190, 223, 243);
   margin-top: 5px;
   display: block;
-  border: 5px double #1C6EA4;
+  border: 5px double #8497a3;
 }
 
 div.blueTable {
@@ -98,4 +98,12 @@ div.blueTable {
   #input{
     border: none;
     border-bottom: salmon 1px;
+  }
+
+  pre{
+    overflow-wrap: break-word;
+    word-spacing: normal;
+    background-color: whitesmoke;
+    word-wrap: auto;
+    white-space: pre-wrap;
   }

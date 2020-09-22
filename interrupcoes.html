@@ -36,51 +36,51 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-8">
-                        <!--                        <div class="dropdown">
-
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown">
-                                Selecione a opção
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#interrupcoes">Interrupções</a> 
-                                <a class="dropdown-item" href="#normalizacao">Normalização</a>
-                                <a class="dropdown-item" href="#alerta">Alerta</a>
-                            </div>
-                        </div> -->
                         <div class="row">
                             <div class="col-md-6">
                                 <form name="formularioQuedas" id="formularioQuedas">
                                     <div class="interrupcoes" id="mostraQueda">
-                                        <h5 style="display: inline;">Número evento e Titulo:</h5><br />
-                                        <input type="text" size="60" ng-model="Titulo"
-                                            placeholder="Ex.: #1 NOVA FRIBURGO X CACHOEIRAS DE MACACU">
-                                        <br />
-                                        <h5 style="display: inline;">Data e hora da queda: </h5><br />
-                                        <input id="horaqueda" size="60" type="text" ng-model="horaqueda"
-                                            placeholder="Digite hora da queda">
-                                        <br />
-                                        <h5 style="display: inline;">Capacidade: </h5><br />
-                                        <input type="text" size="60" ng-model="capacidade" placeholder="Ex.: 10Gb">
-                                        <br />
-                                        <h5 style="display: inline;">Owner: </h5><br />
-                                        <input type="text" size="60" ng-model="Owner"
-                                            placeholder="Digite o responsável pelo trecho">
-                                        <br />
-                                        <h5 style="display: inline;">Clientes afetados: </h5><br />
-                                        <input type="text" size="60" ng-model="clientes"
-                                            placeholder="Digite os clientes afetados">
-                                        <br />
-                                        <h5 style="display: inline;">Resumo: </h5><br />
-                                        <textarea type="text" ng-model="resumo" cols="65" rows="5"
-                                            placeholder="Digite informações ou atualizações"></textarea>
-                                        <br />
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control"
+                                                placeholder="Número evento e Titulo:"
+                                                aria-label="Número evento e Titulo:" aria-describedby="basic-addon1"
+                                                ng-model="Titulo">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input id="horaqueda" type="text" class="form-control" ng-model="horaqueda"
+                                                placeholder="Digite a data e hora da queda">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" ng-model="capacidade"
+                                                placeholder="Digite a capacidade. Ex.: 10">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" ng-model="Owner"
+                                                placeholder="Digite o responsável pelo trecho">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label class="input-group" for="clientesAfetados">Clientes afetados:
+                                            </label>
+                                            <select class="form-control" ng-model="clientes" id="clientesAfetados">
+                                                <option>Backbone Altarede</option>
+                                                <option>Clientes Altarede</option>
+                                                <option>Backbone Altarede / Clientes</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Resumo:</span>
+                                            </div>
+                                            <textarea type="text" ng-model="resumoqueda" class="form-control"
+                                                placeholder="Digite informações ou atualizações"
+                                                ng-model="resumoqueda"></textarea>
+                                        </div>
                                         <button type="button" class="btn btn-success"
                                             onclick="copiaParaClipboard(document.getElementById('textoQueda').innerHTML)">
-                                            Copiar texto queda
+                                            Copiar texto
                                         </button>
                                         <button type="button" class="btn btn-danger" type="reset" id="ResetForm">
-                                            Apagar texto queda
+                                            Apagar texto
                                         </button>
                                     </div>
                                 </form>
@@ -88,62 +88,76 @@
                             <div class="col-md-6">
                                 <form name="formularioNormalizacao" id="formularioNormalizacao">
                                     <div class="normalizacao" id="mostraNormalizacao">
-                                        <h5 style="display: inline;">Número evento e Titulo:</h5><br />
-                                        <input class="inputNormalizacao" type="text" size="60"
-                                            ng-model="Titulo"
-                                            placeholder="Ex.: #1 NOVA FRIBURGO X CACHOEIRAS DE MACACU">
-                                        <br />
-                                        <h5 style="display: inline;">Data e hora da normalização: </h5><br />
-                                        <input class="inputNormalizacao" size="60" type="text"
-                                            ng-model="horanormalizacao"
-                                            placeholder="Digite data e hora da normalização">
-                                        <br />
-                                        <h5 style="display: inline;">Capacidade: </h5><br />
-                                        <input class="inputNormalizacao" type="text" size="60" ng-model="capacidade"
-                                            placeholder="Ex.: 10Gb">
-                                        <br />
-                                        <h5 style="display: inline;">Owner: </h5><br />
-                                        <input class="inputNormalizacao" type="text" size="60" ng-model="Owner"
-                                            placeholder="Digite o responsável pelo trecho">
-                                        <br />
-                                        <h5 style="display: inline;">Clientes afetados: </h5><br />
-                                        <input class="inputNormalizacao" type="text" size="60" ng-model="clientes"
-                                            placeholder="Digite os clientes afetados">
-                                        <br />
-                                        <h5 style="display: inline;">Resumo: </h5><br />
-                                        <textarea type="text" ng-model="resumonormalizacao" cols="65" rows="5"
-                                            placeholder="Digite informações ou atualizações"></textarea>
-                                        <br />
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control"
+                                                placeholder="Número evento e Titulo:"
+                                                aria-label="Número evento e Titulo:" aria-describedby="basic-addon1"
+                                                ng-model="Titulo">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" ng-model="horanormalizacao"
+                                                placeholder="Digite data e hora da normalização">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" ng-model="capacidade"
+                                                placeholder="Digite a capacidade. Ex.: 10">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" ng-model="Owner"
+                                                placeholder="Digite o responsável pelo trecho">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <label class="input-group" for="clientesAfetados">Clientes afetados:
+                                            </label>
+                                            <select class="form-control" id="clientesAfetados" ng-model="clientes">
+                                                <option>Backbone Altarede</option>
+                                                <option>Clientes Altarede</option>
+                                                <option>Backbone Altarede / Clientes</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Resumo:</span>
+                                            </div>
+                                            <textarea type="text" ng-model="resumonormalizacao" class="form-control"
+                                                placeholder="Digite informações ou atualizações"></textarea>
+                                        </div>
                                         <button type="button" class="btn btn-success"
                                             onclick="copiaParaClipboard(document.getElementById('textoNormalizacao').innerHTML)">
-                                            Copiar texto normalização
+                                            Copiar texto
                                         </button>
                                         <button type="button" class="btn btn-danger" type="reset"
                                             id="ResetFormNormalizacao">
-                                            Apagar texto normalização
+                                            Apagar texto
                                         </button>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                        <hr>
                         <div class="row">
                             <div class="col-md-12">
                                 <form name="formularioAlerta" id="formularioAlerta">
-                                    <div class="alertas" id="mostraAlerta">
-                                        <h5 style="display: inline;">Alerta:</h5><br />
-                                        <input type="text" size="60" ng-model="Tituloalerta"
-                                            placeholder="Ex.: 1 NOVA FRIBURGO X CACHOEIRAS DE MACACU (ALERTA)">
-                                        <br />
-                                        <h5 style="display: inline;">Resumo: </h5><br />
-                                        <textarea type="text" ng-model="resumoalertas" cols="65" rows="5"
-                                            placeholder="Digite informações ou atualizações"></textarea>
+                                    <div class="alertas" id="Alerta">
+                                        <div class="input-group mb-3">
+                                            <label class="input-group">Alerta:</label>
+                                            <input class="form-control" type="text" ng-model="Tituloalerta"
+                                                placeholder="Ex.: 1 NOVA FRIBURGO X CACHOEIRAS DE MACACU (ALERTA)">
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Resumo:</span>
+                                            </div>
+                                            <textarea type="text" ng-model="resumoalertas" class="form-control"
+                                                placeholder="Digite informações ou atualizações"></textarea>
+                                        </div>
                                     </div>
                                     <button type="button" class="btn btn-success"
                                         onclick="copiaParaClipboard(document.getElementById('textoAlerta').innerHTML)">
                                         Copiar texto alertas
                                     </button>
-                                    <button type="button" class="btn btn-danger" type="reset"
-                                        id="ResetFormAlerta">
+                                    <button type="button" class="btn btn-danger" type="reset" id="ResetFormAlerta">
                                         Apagar texto alerta
                                     </button>
                                 </form>
@@ -153,46 +167,44 @@
                     <div class="col-md-4">
                         <div class="jumbotron">
                             <div id="textoPreFormatado">
-                                <h1>Texto para copiar no Whatsapp</h1>
+                                <h1> Texto para copiar no Whatsapp</h1>
 
-                                <pre id="textoQueda">
+                                <pre id="textoQueda" style="overflow: auto;">
 ❌ *#{{Titulo}}*
 *Hora da queda*: {{horaqueda}}
-*Capacidade*: {{capacidade}}
+*Capacidade*: {{capacidade}} Gbps
 *Owner*: {{Owner}}
 *Clientes afetados*: {{clientes}}
-*Resumo*: {{resumo}}</pre>
+*Resumo*: {{resumoqueda}}</pre>
 
-                                <pre id="textoNormalizacao">
-✅ *#{{Titulonormalizacao}}* - *NORMALIZADO*
+                                <pre id="textoNormalizacao" style="overflow: auto;">
+✅ *#{{Titulo}}* - *NORMALIZADO*
 *Hora da queda*: {{horaqueda}}
 *Hora da normalização*: {{horanormalizacao}}
-*Capacidade*: {{capacidade}}
+*Capacidade*: {{capacidade}} Gbps
 *Owner*: {{Owner}}
 *Clientes afetados*: {{clientes}}
 *Resumo*: {{resumonormalizacao}}</pre>
+
+                                <pre id="textoAlerta" style="overflow: auto;">
+⚠️ *{{Tituloalerta}}* ⚠️
+*Resumo*: {{resumoalertas}}</pre>
+
+                                <label class="input-group">Texto de encerramento de chamados</label>
+                                <div id="textoEncerramento">
+                                    Normalização: <br>
+                                    Causa Raiz: <br>
+                                    Localização: <br>
+                                    Equipe: <br>
+                                    Tratativa: <br>
+                                </div>
+                                <button type="button" class="btn btn-success"
+                                    onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerHTML)">
+                                    Copiar texto
+                                </button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <hr>
-    <div class="card">
-        <div class="card-header">
-            <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-256918"
-                href="#card-element-encerramento">Clique para expandir texto de encerramento de chamados</a>
-        </div>
-        <div id="card-element-encerramento" class="collapse">
-            <div class="card-body">
-                <div id="textoEncerramento">
-                    Normalização: <br>
-                    Causa Raiz: <br>
-                    Localização: <br>
-                    Equipe: <br>
-                    Tratativa: <br>
                 </div>
             </div>
         </div>
@@ -201,5 +213,4 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
 </body>
-
 </html>
