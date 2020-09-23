@@ -167,9 +167,9 @@
                     <div class="col-md-4">
                         <div class="jumbotron">
                             <div id="textoPreFormatado">
-                                <h1> Texto para copiar no Whatsapp</h1>
+                                <h2> Texto para copiar no Whatsapp</h2>
 
-                                <pre id="textoQueda" style="overflow: auto;">
+                                <pre id="textoQueda">
 ❌ *#{{Titulo}}*
 *Hora da queda*: {{horaqueda}}
 *Capacidade*: {{capacidade}} Gbps
@@ -177,7 +177,7 @@
 *Clientes afetados*: {{clientes}}
 *Resumo*: {{resumoqueda}}</pre>
 
-                                <pre id="textoNormalizacao" style="overflow: auto;">
+                                <pre id="textoNormalizacao">
 ✅ *#{{Titulo}}* - *NORMALIZADO*
 *Hora da queda*: {{horaqueda}}
 *Hora da normalização*: {{horanormalizacao}}
@@ -186,18 +186,16 @@
 *Clientes afetados*: {{clientes}}
 *Resumo*: {{resumonormalizacao}}</pre>
 
-                                <pre id="textoAlerta" style="overflow: auto;">
+                                <pre id="textoAlerta">
 ⚠️ *{{Tituloalerta}}* ⚠️
 *Resumo*: {{resumoalertas}}</pre>
 
-                                <label class="input-group">Texto de encerramento de chamados</label>
-                                <div id="textoEncerramento">
-                                    Normalização: <br>
-                                    Causa Raiz: <br>
-                                    Localização: <br>
-                                    Equipe: <br>
-                                    Tratativa: <br>
-                                </div>
+                                <h4 class="input-group">Texto de encerramento de chamados</h4>
+                                <div id="textoEncerramento">Normalização: 
+Causa Raiz: 
+Localização: 
+Equipe: 
+Tratativa: </div>
                                 <button type="button" class="btn btn-success"
                                     onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerHTML)">
                                     Copiar texto
