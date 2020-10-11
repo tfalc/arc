@@ -5,6 +5,7 @@
 -->
 
 <head>
+    <title>ARC INTERRUPÇÕES</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -41,7 +42,7 @@
                                 <form name="formularioQuedas" id="formularioQuedas">
                                     <div class="interrupcoes" id="mostraQueda">
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control"
+                                            <input type="text" id="titulo" class="form-control"
                                                 placeholder="Digite número do evento e trecho de falha"
                                                 aria-label="Número evento e Titulo:" aria-describedby="basic-addon1"
                                                 ng-model="Titulo">
@@ -51,18 +52,18 @@
                                                 placeholder="Digite a data e hora da queda">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input class="form-control" type="text" ng-model="horanormalizacao"
+                                            <input id="horanormalizacao" class="form-control" type="text" ng-model="horanormalizacao"
                                                 placeholder="Digite data e hora da normalização">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" ng-model="capacidade"
+                                            <input id="capacidade" type="text" class="form-control" ng-model="capacidade"
                                                 placeholder="Digite a capacidade. Ex.: 10">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input class="form-control" ng-model="Owner"
+                                            <input id="owner" class="form-control" ng-model="Owner"
                                                 placeholder="Digite o responsável pelo trecho">
                                         </div>
-                                        <div class="input-group mb-3">
+                                        <div id="afetados" class="input-group mb-3">
                                             <label class="input-group" for="clientesAfetados">Clientes afetados:
                                             </label>
                                             <select class="form-control" ng-model="clientes" id="clientesAfetados">
@@ -75,7 +76,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Resumo de queda:</span>
                                             </div>
-                                            <textarea type="text" ng-model="resumoqueda" class="form-control"
+                                            <textarea id="resumoqueda" type="text" ng-model="resumoqueda" class="form-control"
                                                 placeholder="Digite informações ou atualizações"
                                                 ng-model="resumoqueda"></textarea>
                                         </div>
@@ -83,14 +84,14 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Resumo normalização:</span>
                                             </div>
-                                            <textarea type="text" ng-model="resumonormalizacao" class="form-control"
+                                            <textarea id="resumonormalizacao" type="text" ng-model="resumonormalizacao" class="form-control"
                                                 placeholder="Digite informações ou atualizações"></textarea>
                                         </div>
-                                        <button type="button" class="btn btn-danger"
+                                        <button id="botaoQueda" type="button" class="btn btn-danger"
                                             onclick="copiaParaClipboard(document.getElementById('textoQueda').innerHTML)">
                                             Copiar texto de queda
                                         </button>
-                                        <button type="button" class="btn btn-success"
+                                        <button id="botaoNormalizacao" type="button" class="btn btn-success"
                                             onclick="copiaParaClipboard(document.getElementById('textoNormalizacao').innerHTML)">
                                             Copiar texto de normalização
                                         </button>
@@ -157,11 +158,11 @@
 *Resumo*: {{resumoalertas}}</pre>
 
                                 <h4 class="input-group">Texto de encerramento de chamados</h4>
-                                <div id="textoEncerramento">Normalização: 
-Causa Raiz: 
-Localização: 
-Equipe: 
-Tratativa: </div>
+                                <div id="textoEncerramento">Normalização:
+                                    Causa Raiz:
+                                    Localização:
+                                    Equipe:
+                                    Tratativa: </div>
                                 <button type="button" class="btn btn-success"
                                     onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerHTML)">
                                     Copiar texto
@@ -174,4 +175,5 @@ Tratativa: </div>
         </div>
     </div>
 </body>
+
 </html>
