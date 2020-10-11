@@ -52,12 +52,13 @@
                                                 placeholder="Digite a data e hora da queda">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input id="horanormalizacao" class="form-control" type="text" ng-model="horanormalizacao"
+                                            <input id="horanormalizacao" class="form-control" type="text"
+                                                ng-model="horanormalizacao"
                                                 placeholder="Digite data e hora da normalização">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input id="capacidade" type="text" class="form-control" ng-model="capacidade"
-                                                placeholder="Digite a capacidade. Ex.: 10">
+                                            <input id="capacidade" type="text" class="form-control"
+                                                ng-model="capacidade" placeholder="Digite a capacidade. Ex.: 10">
                                         </div>
                                         <div class="input-group mb-3">
                                             <input id="owner" class="form-control" ng-model="Owner"
@@ -76,15 +77,16 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Resumo de queda:</span>
                                             </div>
-                                            <textarea id="resumoqueda" type="text" ng-model="resumoqueda" class="form-control"
-                                                placeholder="Digite informações ou atualizações"
+                                            <textarea id="resumoqueda" type="text" ng-model="resumoqueda"
+                                                class="form-control" placeholder="Digite informações ou atualizações"
                                                 ng-model="resumoqueda"></textarea>
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Resumo normalização:</span>
                                             </div>
-                                            <textarea id="resumonormalizacao" type="text" ng-model="resumonormalizacao" class="form-control"
+                                            <textarea id="resumonormalizacao" type="text" ng-model="resumonormalizacao"
+                                                class="form-control"
                                                 placeholder="Digite informações ou atualizações"></textarea>
                                         </div>
                                         <button id="botaoQueda" type="button" class="btn btn-danger"
@@ -158,11 +160,12 @@
 *Resumo*: {{resumoalertas}}</pre>
 
                                 <h4 class="input-group">Texto de encerramento de chamados</h4>
-                                <div id="textoEncerramento">Normalização:
-                                    Causa Raiz:
-                                    Localização:
-                                    Equipe:
-                                    Tratativa: </div>
+                                <div id="textoEncerramento">
+Normalização:
+Causa Raiz:
+Localização:
+Equipe:
+Tratativa: </div>
                                 <button type="button" class="btn btn-success"
                                     onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerHTML)">
                                     Copiar texto
