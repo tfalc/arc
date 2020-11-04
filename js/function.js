@@ -1,57 +1,58 @@
-function quedaArray(){
-    let evento = {
-        id: Date.now,
-        titulo: document.getElementById('titulo').value,
-        horaqueda: document.getElementById('horaqueda').value,
-        horanormalizacao: document.getElementById('horanormalizacao').value,
-        capacidade: document.getElementById('capacidade').value,
-        owner: document.getElementById('owner').value,
-        afetados: $("#afetados :selected").text(), 
-        resumoqueda: document.getElementById('resumoqueda').value
-    }
-    interruptForm.push(evento);
-    document.forms[0].reset(); //limpa formulário para próximas entradas
-}
-/*
-function normalizArray(){
-    let evento = {
-        id: Date.now,
-        titulo: document.getElementById('titulo').value,
-        horanormalizacao: document.getElementById('horanormalizacao').value,
-        capacidade: document.getElementById('capacidade').value,
-        owner: document.getElementById('owner').value,
-        afetados: document.getElementById('afetados').value,
-        resumonormalizacao: document.getElementById('resumonormalizacao').value
-    }
-    interruptForm.push(evento)
-    document.forms[0].reset(); //limpa formulário para próximas entradas
-}*/
+var textoQuedaListaOrdenada = document.querySelector('#interrupTable ol');
+var textoQuedaLista = document.querySelector('#interrupTable li');
+var textoQuedaInput = document.querySelector('#formularioQuedas input');
+var textoQuedaButton = document.querySelector('#formularioQuedas button');
 
-const adicionaDado = (ev) => {
-    ev.preventDefault(); //interrompe envio de formulário
-    if(document.getElementById('botaoQueda').addEventListener('click', quedaArray));
-    else if(document.getElementById('botaoNormalizacao').addEventListener('click', quedaArray));
-    //(document.getElementById('botaoQueda').addEventListener('click', quedaArray));
- //   else if(document.getElementById('botaoNormalizacao').addEventListener('click', normalizArray));
-}
+let interruptFormLocal = JSON.parse(localStorage.getItem('itemsArray')) || [];
 
+//conexão MySQL com Node.JS
+/*var mysqlcon = mysql.createConnection({
+    host: "localhost",
+    user: "user",
+    password: "password"
+});*/   
 
-//para teste somente
-console.warn('adicionado array', { interruptForm });
-console.log(interruptForm)
+//conexão MySQL com PHP
 
-    //let pre = document.querySelector('#textoQueda pre');
-    //pre.textContent = '\n' + JSON.stringify(interruptForm, '\t', 2);
-
-    //salvando em armazenamento local
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('botaoQueda').addEventListener('click', adicionaDado);
-    document.getElementById('botaoNormalizacao').addEventListener('click', adicionaDado);
-});
-
+//Função para exibir array em uma lista
 function exibeArray(){
-    for (i = 0; i<interruptForm.length; i++){
-        print().interruptForm
+    textoQuedaListaOrdenada.innerHTML='';
+
+    for (texto of interruptFormLocal){
+        var textoQuedaElement = document.createElement('li');
+        var textoQuedaText = document.createTextNode(evento);
+        var buttonQueda = document.querySelector('#formularioQuedas', botaoQueda);
+        var buttonNormalizacao = document.querySelector('#formularioQuedas', botaoNormalizacao);
+        
+        textoQuedaListaOrdenada.appendChild(textoQuedaElement); //cria o <li>
+        textoQuedaElement.appendChild(textoQuedaText); //adiciona o texto ao <li>
+        
+
+        var pos = interruptFormLocal.indexOf(evento);
+        buttonQueda.setAttribute('onclick', 'addQueda(' + pos + ')');
+        buttonNormalizacao.setAttribute('onclick', 'deletaQueda(' + pos + ')');
     }
+}
+
+exibeArray();
+
+//Função para adicionar texto ao array
+function addQueda(){
+    var textoQuedaText = evento;
+    interruptFormLocal.push(textoQuedaText);
+    inputElement.value='';
+    exibeArray();
+    salvaLocal();
+}
+
+//Função para deletar um array conforme a posição que ele for sendo salvo
+function deletaQueda(pos){
+    interruptFormLocal.splice(pos, 1);
+    exibeArray();
+    salvaLocal();
+}
+
+//função para salvar em localStorage
+function salvaLocal(){
+    localStorage.setItem('itemsArray', JSON.stringify(interruptForm));
 }

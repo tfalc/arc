@@ -25,12 +25,60 @@ $(document).on('click', "#ResetFormAlerta", function () {
     document.getElementById('formularioAlerta').reset();
 });
 
-//Não está sendo utilizado
-//Função para exibir dropdown
-//$('.dropdown-toggle').dropdown();
-
-
 let interruptForm = [];
 
+function quedaArray(){
+    let evento = {
+        id: Date.now,
+        titulo: document.getElementById('titulo').value,
+        horaqueda: document.getElementById('horaqueda').value,
+        //horanormalizacao: document.getElementById('horanormalizacao').value,
+        capacidade: document.getElementById('capacidade').value,
+        owner: document.getElementById('owner').value,
+        afetados: $("#afetados :selected").text(), 
+        resumoqueda: document.getElementById('resumoqueda').value
+    }
+    interruptForm.push(evento);
+    document.forms[0].reset(); //limpa formulário para próximas entradas
+}
+
+function normalizArray(){
+    let evento = {
+        id: Date.now,
+        titulo: document.getElementById('titulo').value,
+        horaqueda: document.getElementById('horaqueda').value,
+        horanormalizacao: document.getElementById('horanormalizacao').value,
+        capacidade: document.getElementById('capacidade').value,
+        owner: document.getElementById('owner').value,
+        afetados: $("#afetados :selected").text(),
+        resumonormalizacao: document.getElementById('resumonormalizacao').value
+    }
+    interruptForm.push(evento)
+    document.forms[0].reset(); //limpa formulário para próximas entradas
+}
+
+const adicionaDado = (ev) => {
+    ev.preventDefault(); //interrompe envio de formulário
+    if(document.getElementById('botaoQueda').addEventListener('click', quedaArray));
+    else if(document.getElementById('botaoNormalizacao').addEventListener('click', normalizArray));
+}
 
 
+//para teste somente
+console.info("Mensagens abaixo são para teste de inicialização do array");
+console.warn('adicionado array', { interruptForm });
+console.log(interruptForm);
+console.info("FIM DO TESTE");
+
+//Função para exibir as interrupções abaixo do último <hr>
+setInterval(function atualizaQueda(){
+    let pre = document.querySelector('#textoInterrupt pre');
+    pre.textContent = '\n' + JSON.stringify(interruptForm, '\t', 2);
+}, 1000);
+
+//salvando em armazenamento local
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('botaoQueda').addEventListener('click', adicionaDado);
+    document.getElementById('botaoNormalizacao').addEventListener('click', adicionaDado);
+});

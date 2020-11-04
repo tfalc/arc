@@ -20,7 +20,7 @@
         </script>
     <link href="css/style.css" rel="stylesheet">
     <script src="js/scripts.js"></script>
-    <script src="js/function.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
 </head>
 
 <body>
@@ -176,8 +176,15 @@ Tratativa: </div>
                 </div>
                 <hr>
                 <h2>Interrupções no momento:</h2>
+                <div id="interrupTable">
+                <ol>
+                    <li>teste</li>
+                </ol>
+                </div>
+                <button type="button" class="btn btn-warning"
+                onclick="document.getElementById('interrupTable').innerHTML=interruptFormLocal;">Exibe Interrupções TESTE</button>
                 <div id="textoInterrupt">
-                    <script>exibeArray()</script>
+                    <pre></pre>
                 </div>
             </div>
         </div>
