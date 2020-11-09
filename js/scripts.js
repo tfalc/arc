@@ -25,35 +25,34 @@ $(document).on('click', "#ResetFormAlerta", function () {
     document.getElementById('formularioAlerta').reset();
 });
 
+//declaração de array vazio para inicialização
 let interruptForm = [];
 
+
+
+/*função para salvar os objetos do array do formulário com foco nas informações de queda. 
+Hora da normalização e resumo da normalização ficarão vazios*/
 function quedaArray(){
     let evento = {
-        id: Date.now,
-        titulo: document.getElementById('titulo').value,
-        horaqueda: document.getElementById('horaqueda').value,
-        //horanormalizacao: document.getElementById('horanormalizacao').value,
-        capacidade: document.getElementById('capacidade').value,
-        owner: document.getElementById('owner').value,
-        afetados: $("#afetados :selected").text(), 
-        resumoqueda: document.getElementById('resumoqueda').value
-    }
-    interruptForm.push(evento);
-    document.forms[0].reset(); //limpa formulário para próximas entradas
-}
-
-function normalizArray(){
-    let evento = {
-        id: Date.now,
+        id: interruptForm.length,
         titulo: document.getElementById('titulo').value,
         horaqueda: document.getElementById('horaqueda').value,
         horanormalizacao: document.getElementById('horanormalizacao').value,
         capacidade: document.getElementById('capacidade').value,
         owner: document.getElementById('owner').value,
-        afetados: $("#afetados :selected").text(),
+        afetados: $("#afetados :selected").text(), 
+        resumoqueda: document.getElementById('resumoqueda').value,
         resumonormalizacao: document.getElementById('resumonormalizacao').value
     }
-    interruptForm.push(evento)
+    interruptForm.push(evento);
+    document.forms[0].reset(); //limpa formulário para próximas entradas
+}
+
+/*função para resgatar informações do array de queda e alterar os valores (a princípio vazios)
+da hora de normalização e do resumo de normalização*/
+function normalizArray(){
+    interruptForm.horanormalizacao = document.getElementById('horanormalizacao').value;
+    interruptForm.resumonormalizacao = document.getElementById('resumonormalizacao').value;
     document.forms[0].reset(); //limpa formulário para próximas entradas
 }
 

@@ -10,7 +10,7 @@ let interruptFormLocal = JSON.parse(localStorage.getItem('itemsArray')) || [];
     host: "localhost",
     user: "user",
     password: "password"
-});*/   
+});*/
 
 //conexão MySQL com PHP
 
