@@ -57,7 +57,7 @@ function normalizArray(){
 }
 
 const adicionaDado = (ev) => {
-    ev.preventDefault(); //interrompe envio de formulário
+    ev.preventDefault(); //Previne que página seja recarregada após clicar no botão submit
     if(document.getElementById('botaoQueda').addEventListener('click', quedaArray));
     else if(document.getElementById('botaoNormalizacao').addEventListener('click', normalizArray));
 }
