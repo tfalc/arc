@@ -28,8 +28,6 @@ $(document).on('click', "#ResetFormAlerta", function () {
 //declaração de array vazio para inicialização
 let interruptForm = [];
 
-
-
 /*função para salvar os objetos do array do formulário com foco nas informações de queda. 
 Hora da normalização e resumo da normalização ficarão vazios*/
 function quedaArray(){
@@ -58,8 +56,8 @@ function normalizArray(){
 
 const adicionaDado = (ev) => {
     ev.preventDefault(); //Previne que página seja recarregada após clicar no botão submit
-    if(document.getElementById('botaoQueda').addEventListener('click', quedaArray));
-    else if(document.getElementById('botaoNormalizacao').addEventListener('click', normalizArray));
+    if(document.getElementById('botaoQueda').addEventListener('click', quedaArray)); //copia texto de queda
+    else if(document.getElementById('botaoNormalizacao').addEventListener('click', normalizArray)); //copia texto de normalização
 }
 
 

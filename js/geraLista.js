@@ -5,13 +5,6 @@ var textoQuedaButton = document.querySelector('#formularioQuedas button');
 
 let interruptFormLocal = JSON.parse(localStorage.getItem('itemsArray')) || [];
 
-//conexão MySQL com Node.JS
-/*var mysqlcon = mysql.createConnection({
-    host: "localhost",
-    user: "user",
-    password: "password"
-});*/
-
 //conexão MySQL com PHP
 
 //Função para exibir array em uma lista
