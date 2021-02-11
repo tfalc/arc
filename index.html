@@ -166,15 +166,33 @@ Causa Raiz:
 Localização: 
 Equipe: 
 Tratativa: </div>
-                                <button type="button" class="btn btn-success"
+                                <button style="float: right; margin-bottom: 25px;" type="button" class="btn btn-success"
                                     onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerHTML)">
+                                    Copiar texto
+                                </button>
+                                <br>
+                                <br>
+<hr>
+                                <h4 class="input-group">Texto de encerramento de chamados</h4>
+                                <div id="textoEncerramentoDFL">Normalização: 
+Trecho:
+Hora da queda:
+Protocolo Altarede:
+Protocolo Operadora:
+Tratativa:
+Localização (Lat, Long):
+Observação:
+Causa Raiz:
+Prazo de normalização: </div>
+                                <button style="float: right;" type="button" class="btn btn-success"
+                                    onclick="copiaParaClipboard(document.getElementById('textoEncerramentoDFL').innerHTML)">
                                     Copiar texto
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr>
+                <!-- <hr>
                 <h2>Interrupções no momento:</h2>
                 <div id="interrupTable">
                 <ol>
@@ -185,7 +203,7 @@ Tratativa: </div>
                 onclick="document.getElementById('interrupTable').innerHTML=interruptFormLocal;">Exibe Interrupções TESTE</button>
                 <div id="textoInterrupt">
                     <pre></pre>
-                </div>
+                </div> FIM DO INTERRUPTABLE --> 
             </div>
         </div>
     </div>

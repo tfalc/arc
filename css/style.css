@@ -51,6 +51,7 @@ background-color: whitesmoke;
   margin-top: 5px;
   display: block;
   border: 5px double #8497a3;
+  margin-bottom: 5px;
 }
 
 div.blueTable {
@@ -107,3 +108,10 @@ div.blueTable {
     word-wrap: auto;
     white-space: pre-wrap;
   }
+
+  #textoEncerramentoDFL {
+    border: 2px dashed #1C6EA4;
+    border-radius: 30px;
+    padding: 8px;
+    margin-bottom: 5px;
+    }
