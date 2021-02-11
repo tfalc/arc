@@ -61,17 +61,17 @@ const adicionaDado = (ev) => {
 }
 
 
-//para teste somente
+/*//para teste somente
 console.info("Mensagens abaixo são para teste de inicialização do array");
 console.warn('adicionado array', { interruptForm });
 console.log(interruptForm);
-console.info("FIM DO TESTE");
+console.info("FIM DO TESTE");*/
 
 //Função para exibir as interrupções abaixo do último <hr>
-setInterval(function atualizaQueda(){
+/*setInterval(function atualizaQueda(){
     let pre = document.querySelector('#textoInterrupt pre');
     pre.textContent = '\n' + JSON.stringify(interruptForm, '\t', 2);
-}, 1000);
+}, 1000);*/
 
 //salvando em armazenamento local
 

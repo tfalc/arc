@@ -1,4 +1,4 @@
-var textoQuedaListaOrdenada = document.querySelector('#interrupTable ol');
+/*var textoQuedaListaOrdenada = document.querySelector('#interrupTable ol');
 var textoQuedaLista = document.querySelector('#interrupTable li');
 var textoQuedaInput = document.querySelector('#formularioQuedas input');
 var textoQuedaButton = document.querySelector('#formularioQuedas button');
@@ -48,4 +48,4 @@ function deletaQueda(pos){
 //função para salvar em localStorage
 function salvaLocal(){
     localStorage.setItem('itemsArray', JSON.stringify(interruptForm));
-}
+}*/
