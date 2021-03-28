@@ -1,26 +1,24 @@
 <!doctype html>
-<html ng-app>
-<!-- conexão com BD para pegar dados
-    <?php $conn = new mysqli("IP_Servidor", "ADMIN-NOC_DB_USER", "ADMIN-NOC_DB_PASS", "ADMIN-NOC_DB");?>
--->
+<html>
 
 <head>
     <title>ARC INTERRUPÇÕES</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
+    </script>
     <link href="css/style.css" rel="stylesheet">
     <script src="js/scripts.js"></script>
     <script type="text/javascript" src="js/geraLista.js"></script>
+    <script type="text/javascript" src="js/calculo.js"></script>
 </head>
 
 <body>
@@ -40,172 +38,247 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-12">
-                                <form name="formularioQuedas" id="formularioQuedas">
-                                    <div class="interrupcoes" id="mostraQueda">
+                                <h1 style="text-align: center;">Calculadora de bits ARC</h1>
+                                <div class="calculadora">
+                                    <form name="calculadoraArc" id="calculadoraArc">
                                         <div class="input-group mb-3">
-                                            <input type="text" id="titulo" class="form-control"
-                                                placeholder="Digite número do evento e trecho de falha"
-                                                aria-label="Número evento e Titulo:" aria-describedby="basic-addon1"
-                                                ng-model="Titulo">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <input id="horaqueda" type="text" class="form-control" ng-model="horaqueda"
-                                                placeholder="Digite a data e hora da queda">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <input id="horanormalizacao" class="form-control" type="text"
-                                                ng-model="horanormalizacao"
-                                                placeholder="Digite data e hora da normalização">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <input id="capacidade" type="text" class="form-control"
-                                                ng-model="capacidade" placeholder="Digite a capacidade. Ex.: 10">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <input id="owner" class="form-control" ng-model="Owner"
-                                                placeholder="Digite o responsável pelo trecho">
-                                        </div>
-                                        <div id="afetados" class="input-group mb-3">
-                                            <label class="input-group" for="clientesAfetados">Clientes afetados:
-                                            </label>
-                                            <select class="form-control" ng-model="clientes" id="clientesAfetados">
-                                                <option>Backbone Altarede</option>
-                                                <option>Clientes Altarede</option>
-                                                <option>Backbone Altarede / Clientes</option>
-                                            </select>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Resumo de queda:</span>
+                                            <input type="text" class="form-control" id="valor1"
+                                                placeholder="Insira o valor a ser convertido">
+                                            <div class="input-group-append">
+                                                <div class="custom-select">
+                                                    <select name="selecoes" id="opcoesConversao">
+                                                        <option value="opcaob" id="opcaob">b</option>
+                                                        <option value="opcaoB" id="opcaoB">B</option>
+                                                        <option value="opcaoKb" id="opcaoKb">Kb</option>
+                                                        <option value="opcaoMb" id="opcaoMb">Mb</option>
+                                                        <option value="opcaoGb" id="">Gb</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <textarea id="resumoqueda" type="text" ng-model="resumoqueda"
-                                                class="form-control" placeholder="Digite informações ou atualizações"
-                                                ng-model="resumoqueda"></textarea>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Resumo normalização:</span>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="bit-left">bit</span>
+                                                <input type="text" class="form-control" name="bit" id="calculaBit"
+                                                    disabled>
                                             </div>
-                                            <textarea id="resumonormalizacao" type="text" ng-model="resumonormalizacao"
-                                                class="form-control"
-                                                placeholder="Digite informações ou atualizações"></textarea>
                                         </div>
-                                        <button id="botaoQueda" type="button" class="btn btn-danger"
-                                            onclick="copiaParaClipboard(document.getElementById('textoQueda').innerHTML)">
-                                            Copiar texto de queda
-                                        </button>
-                                        <button id="botaoNormalizacao" type="button" class="btn btn-success"
-                                            onclick="copiaParaClipboard(document.getElementById('textoNormalizacao').innerHTML)">
-                                            Copiar texto de normalização
-                                        </button>
-                                        <button type="button" class="btn btn-warning" type="reset" id="ResetForm">
-                                            Apagar texto
-                                        </button>
-                                    </div>
-                                </form>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="byte-left">byte</span>
+                                                <input type="text" class="form-control" name="byte" id="calculaByte"
+                                                    disabled>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="kilobit-left">kilobit</span>
+                                                <input type="text" class="form-control" name="kilobit"
+                                                    id="calculaKilobit" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="megabit-left">megabit</span>
+                                                <input type="text" class="form-control" name="megabit"
+                                                    id="calculaMegabit" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="gigabit-left">gigabit</span>
+                                                <input type="text" class="form-control" name="gigabit"
+                                                    id="calculaGigabit" disabled>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <hr>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form name="formularioAlerta" id="formularioAlerta">
-                                    <div class="alertas" id="Alerta">
-                                        <div class="input-group mb-3">
-                                            <label class="input-group">Alerta:</label>
-                                            <input class="form-control" type="text" ng-model="Tituloalerta"
-                                                placeholder="Ex.: 1 NOVA FRIBURGO X CACHOEIRAS DE MACACU (ALERTA)">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Resumo:</span>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form name="formularioEncerramento" id="formularioEncerramento">
+                                        <div class="encerramentoChamado" id="encerramentoChamado">
+                                            <div class="input-group mb-3">
+                                                <h5 class="input-group">Texto de encerramento básico:</h5>
+                                                <input class="form-control" type="text"
+                                                    placeholder="Data e horário da normalização"
+                                                    onkeyUp="document.getElementById('textoNormalizacao').innerHTML = this.value">
                                             </div>
-                                            <textarea type="text" ng-model="resumoalertas" class="form-control"
-                                                placeholder="Digite informações ou atualizações"></textarea>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Causa raiz"
+                                                    onkeyUp="document.getElementById('causaRaiz').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text"
+                                                    placeholder="Localização da falha (preferencialmente com LAT/LONG)"
+                                                    onkeyUp="document.getElementById('localizacao').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text"
+                                                    placeholder="Equipe(s) envolvida(s) no reparo"
+                                                    onkeyUp="document.getElementById('equipe').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Tratativa"
+                                                    onkeyUp="document.getElementById('tratativa').innerHTML = this.value">
+                                            </div>
                                         </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <form name="formularioEncerramentoDFL" id="formularioEncerramentoDFL">
+                                        <div class="encerramentoChamadoDFL" id="encerramentoChamadoDFL">
+                                            <div class="input-group mb-3">
+                                                <h5 class="input-group">Texto de encerramento DarkFiber:</h5>
+                                                <input class="form-control" type="text"
+                                                    placeholder="Data e horário da normalização"
+                                                    onkeyUp="document.getElementById('textoNormalizacaoDFL').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Trecho da falha"
+                                                    onkeyUp="document.getElementById('trechoDFL').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Hora da queda"
+                                                    onkeyUp="document.getElementById('horaDFL').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Protocolo Altarede"
+                                                    onkeyUp="document.getElementById('protocoloAltarede').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text"
+                                                    placeholder="Protocolo Operadora"
+                                                    onkeyUp="document.getElementById('protocoloOperadora').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text"
+                                                    placeholder="Localização da falha (preferencialmente com LAT/LONG)"
+                                                    onkeyUp="document.getElementById('localizacaoDFL').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Observações"
+                                                    onkeyUp="document.getElementById('observacaoDFL').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Causa raiz"
+                                                    onkeyUp="document.getElementById('causaRaizDFL').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text"
+                                                    placeholder="Equipe(s) envolvida(s) no reparo"
+                                                    onkeyUp="document.getElementById('equipeDFL').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text"
+                                                    placeholder="Prazo para a normalização"
+                                                    onkeyUp="document.getElementById('prazoDFL').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" type="text" placeholder="Tratativa"
+                                                    onkeyUp="document.getElementById('tratativaDFL').innerHTML = this.value">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form name="formularioAlerta" id="formularioAlerta">
+                                            <div class="alertas" id="Alerta">
+                                                <div class="input-group mb-3">
+                                                    <label class="input-group">Alerta:</label>
+                                                    <input class="form-control" type="text"
+                                                        placeholder="Ex.: NOVA FRIBURGO X CACHOEIRAS DE MACACU (ALERTA)"
+                                                        onkeyUp="document.getElementById('tituloAlerta').innerHTML = this.value">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">Resumo:</span>
+                                                    </div>
+                                                    <textarea type="text" class="form-control"
+                                                        placeholder="Digite informações ou atualizações"
+                                                        onkeyUp="document.getElementById('resumoAlerta').innerHTML = this.value"></textarea>
+                                                </div>
+                                            </div>
+                                            <!-- botão do formulário de alerta -->
+                                            <button type="button" class="btn btn-success"
+                                                onclick="copiaParaClipboard(document.getElementById('textoAlerta').innerText)">
+                                                Copiar texto alertas
+                                            </button>
+                                            <button type="button" class="btn btn-warning" type="reset"
+                                                id="ResetFormAlerta">
+                                                Apagar texto alerta
+                                            </button>
+                                        </form>
                                     </div>
-                                    <button type="button" class="btn btn-success"
-                                        onclick="copiaParaClipboard(document.getElementById('textoAlerta').innerHTML)">
-                                        Copiar texto alertas
-                                    </button>
-                                    <button type="button" class="btn btn-warning" type="reset" id="ResetFormAlerta">
-                                        Apagar texto alerta
-                                    </button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="jumbotron">
-                            <div id="textoPreFormatado">
-                                <h2> Texto para copiar no Whatsapp</h2>
-
-                                <pre id="textoQueda">
-❌ *#{{Titulo}}*
-*Hora da queda*: {{horaqueda}}
-*Capacidade*: {{capacidade}} Gbps
-*Owner*: {{Owner}}
-*Clientes afetados*: {{clientes}}
-*Resumo*: {{resumoqueda}}</pre>
-
-                                <pre id="textoNormalizacao">
-✅ *#{{Titulo}}* - *NORMALIZADO*
-*Hora da queda*: {{horaqueda}}
-*Hora da normalização*: {{horanormalizacao}}
-*Capacidade*: {{capacidade}} Gbps
-*Owner*: {{Owner}}
-*Clientes afetados*: {{clientes}}
-*Resumo*: {{resumonormalizacao}}</pre>
-
-                                <pre id="textoAlerta">
-⚠️ *{{Tituloalerta}}* ⚠️
-*Resumo*: {{resumoalertas}}</pre>
-
-                                <h4 class="input-group">Texto de encerramento de chamados</h4>
-                                <div id="textoEncerramento">Normalização: 
-Causa Raiz: 
-Localização: 
-Equipe: 
-Tratativa: </div>
-                                <button style="float: right; margin-bottom: 25px;" type="button" class="btn btn-success"
-                                    onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerHTML)">
-                                    Copiar texto
-                                </button>
-                                <br>
-                                <br>
-<hr>
-                                <h4 class="input-group">Texto de encerramento de chamados --><b>DFL</b></h4>
-                                <div id="textoEncerramentoDFL">Normalização: 
-Trecho:
-Hora da queda:
-Protocolo Altarede:
-Protocolo Operadora:
-Tratativa:
-Localização (Lat, Long):
-Observação:
-Causa Raiz:
-Prazo de normalização: </div>
-                                <button style="float: right;" type="button" class="btn btn-success"
-                                    onclick="copiaParaClipboard(document.getElementById('textoEncerramentoDFL').innerHTML)">
-                                    Copiar texto
-                                </button>
+                            <h4>Texto de alerta pra Whatsapp</h4>
+                            <div id="caixaTextoAlerta" style="display: flex;">
+                                <div style="display: flex;">
+                                    <span id="textoAlerta">
+                                        <span>
+                                            ⚠️ *<span id="tituloAlerta"></span>* ⚠️
+                                            <div>*Resumo*: </div>
+                                            <div id="resumoAlerta">
+                                        </span></div></span>
+                                </span>
+                                </span>
                             </div>
                         </div>
+                        <!-- Botão do texto de alerta -->
+                        <button type="button" class="btn btn-success textoAlerta" id="testeTextoAlerta"
+                            onclick="copiaAlerta(textoAlerta)">
+                            Copiar texto alertas
+                        </button>
+                        <button type=" button" class="btn btn-warning" type="reset" id="ResetFormAlerta">
+                            Apagar texto alerta
+                        </button>
+                        <h4 class="input-group">Texto de encerramento de chamados</h4>
+                        <div id="textoEncerramento">
+                            <span>Normalização: </span><span id="textoNormalizacao"></span><br>
+                            <span>Causa Raiz: </span><span id="causaRaiz"></span><br>
+                            <span>Localização: </span><span id="localizacao"></span><br>
+                            <span>Equipe: </span><span id="equipe"></span><br>
+                            <span>Tratativa: </span><span id="tratativa"></span></div>
+                        <button style="float: right; margin-bottom: 25px; margin-top: 20px;" type="button"
+                            class="btn btn-success"
+                            onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerText)">
+                            Copiar texto
+                        </button>
+                        <hr>
+                        <h4 class="input-group">Texto de encerramento de chamados --><b>DFL</b></h4>
+                        <div id="textoEncerramentoDFL">
+                            <span>Normalização: </span><span id="textoNormalizacaoDFL"></span><br>
+                            <span>Trecho: </span><span id="trechoDFL"></span><br>
+                            <span>Hora da queda: </span><span id="horaDFL"></span><br>
+                            <span>Protocolo Altarede: </span><span id="protocoloAltarede"></span><br>
+                            <span>Protocolo Operadora: </span><span id="protocoloOperadora"></span><br>
+                            <span>Localização (Lat, Long): </span><span id="localizacaoDFL"></span><br>
+                            <span>Observação: </span><span id="observacaoDFL"></span><br>
+                            <span>Causa Raiz: </span><span id="causaRaizDFL"></span><br>
+                            <span>Equipe(s): </span><span id="equipeDFL"></span><br>
+                            <span>Prazo de normalização: </span><span id="prazoDFL"></span><br>
+                            <span>Tratativa: </span><span id="tratativaDFL"></span>
+                        </div>
+                        <button style="float: right;" type="button" class="btn btn-success"
+                            onclick="copiaParaClipboard(document.getElementById('textoEncerramentoDFL').innerText)">
+                            Copiar texto
+                        </button>
                     </div>
                 </div>
-                <!-- <hr>
-                <h2>Interrupções no momento:</h2>
-                <div id="interrupTable">
-                <ol>
-                    <li>teste</li>
-                </ol>
-                </div>
-                <button type="button" class="btn btn-warning"
-                onclick="document.getElementById('interrupTable').innerHTML=interruptFormLocal;">Exibe Interrupções TESTE</button>
-                <div id="textoInterrupt">
-                    <pre></pre>
-                </div> FIM DO INTERRUPTABLE --> 
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </body>
 
