@@ -45,238 +45,234 @@
                                             <input type="text" class="form-control" id="valor1"
                                                 placeholder="Insira o valor a ser convertido">
                                             <div class="input-group-append">
-                                                <div class="custom-select">
-                                                    <select name="selecoes" id="opcoesConversao">
-                                                        <option value="opcaob" id="opcaob">b</option>
-                                                        <option value="opcaoB" id="opcaoB">B</option>
-                                                        <option value="opcaoKb" id="opcaoKb">Kb</option>
-                                                        <option value="opcaoMb" id="opcaoMb">Mb</option>
-                                                        <option value="opcaoGb" id="">Gb</option>
-                                                    </select>
-                                                </div>
+                                                <span class="input-group-text" id="bit-left">Mb</span>
                                             </div>
                                         </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="bit-left">bit</span>
-                                                <input type="text" class="form-control" name="bit" id="calculaBit"
-                                                    disabled>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="byte-left">byte</span>
-                                                <input type="text" class="form-control" name="byte" id="calculaByte"
-                                                    disabled>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="kilobit-left">kilobit</span>
-                                                <input type="text" class="form-control" name="kilobit"
-                                                    id="calculaKilobit" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="megabit-left">megabit</span>
-                                                <input type="text" class="form-control" name="megabit"
-                                                    id="calculaMegabit" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="gigabit-left">gigabit</span>
-                                                <input type="text" class="form-control" name="gigabit"
-                                                    id="calculaGigabit" disabled>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <form name="formularioEncerramento" id="formularioEncerramento">
-                                        <div class="encerramentoChamado" id="encerramentoChamado">
-                                            <div class="input-group mb-3">
-                                                <h5 class="input-group">Texto de encerramento básico:</h5>
-                                                <input class="form-control" type="text"
-                                                    placeholder="Data e horário da normalização"
-                                                    onkeyUp="document.getElementById('textoNormalizacao').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text" placeholder="Causa raiz"
-                                                    onkeyUp="document.getElementById('causaRaiz').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text"
-                                                    placeholder="Localização da falha (preferencialmente com LAT/LONG)"
-                                                    onkeyUp="document.getElementById('localizacao').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text"
-                                                    placeholder="Equipe(s) envolvida(s) no reparo"
-                                                    onkeyUp="document.getElementById('equipe').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text" placeholder="Tratativa"
-                                                    onkeyUp="document.getElementById('tratativa').innerHTML = this.value">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-md-6">
-                                    <form name="formularioEncerramentoDFL" id="formularioEncerramentoDFL">
-                                        <div class="encerramentoChamadoDFL" id="encerramentoChamadoDFL">
-                                            <div class="input-group mb-3">
-                                                <h5 class="input-group">Texto de encerramento DarkFiber:</h5>
-                                                <input class="form-control" type="text"
-                                                    placeholder="Data e horário da normalização"
-                                                    onkeyUp="document.getElementById('textoNormalizacaoDFL').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text" placeholder="Trecho da falha"
-                                                    onkeyUp="document.getElementById('trechoDFL').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text" placeholder="Hora da queda"
-                                                    onkeyUp="document.getElementById('horaDFL').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text" placeholder="Protocolo Altarede"
-                                                    onkeyUp="document.getElementById('protocoloAltarede').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text"
-                                                    placeholder="Protocolo Operadora"
-                                                    onkeyUp="document.getElementById('protocoloOperadora').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text"
-                                                    placeholder="Localização da falha (preferencialmente com LAT/LONG)"
-                                                    onkeyUp="document.getElementById('localizacaoDFL').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text" placeholder="Observações"
-                                                    onkeyUp="document.getElementById('observacaoDFL').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text" placeholder="Causa raiz"
-                                                    onkeyUp="document.getElementById('causaRaizDFL').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text"
-                                                    placeholder="Equipe(s) envolvida(s) no reparo"
-                                                    onkeyUp="document.getElementById('equipeDFL').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text"
-                                                    placeholder="Prazo para a normalização"
-                                                    onkeyUp="document.getElementById('prazoDFL').innerHTML = this.value">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <input class="form-control" type="text" placeholder="Tratativa"
-                                                    onkeyUp="document.getElementById('tratativaDFL').innerHTML = this.value">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <form name="formularioAlerta" id="formularioAlerta">
-                                            <div class="alertas" id="Alerta">
+                                        <div class="row">
+                                            <div class="col-md-6">
                                                 <div class="input-group mb-3">
-                                                    <label class="input-group">Alerta:</label>
-                                                    <input class="form-control" type="text"
-                                                        placeholder="Ex.: NOVA FRIBURGO X CACHOEIRAS DE MACACU (ALERTA)"
-                                                        onkeyUp="document.getElementById('tituloAlerta').innerHTML = this.value">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" id="bit-left">bit</span>
+                                                        <input type="text" class="form-control" name="bit"
+                                                            id="calculaBit" disabled>
+                                                    </div>
                                                 </div>
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-append">
-                                                        <span class="input-group-text">Resumo:</span>
+                                                        <span class="input-group-text" id="byte-left">byte</span>
+                                                        <input type="text" class="form-control" name="byte"
+                                                            id="calculaByte" disabled>
                                                     </div>
-                                                    <textarea type="text" class="form-control"
-                                                        placeholder="Digite informações ou atualizações"
-                                                        onkeyUp="document.getElementById('resumoAlerta').innerHTML = this.value"></textarea>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" id="kilobit-left">kilobit</span>
+                                                        <input type="text" class="form-control" name="kilobit"
+                                                            id="calculaKilobit" disabled>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <!-- botão do formulário de alerta -->
-                                            <button type="button" class="btn btn-success"
-                                                onclick="copiaParaClipboard(document.getElementById('textoAlerta').innerText)">
-                                                Copiar texto alertas
-                                            </button>
-                                            <button type="button" class="btn btn-warning" type="reset"
-                                                id="ResetFormAlerta">
-                                                Apagar texto alerta
-                                            </button>
-                                        </form>
+                                            <div class="col-md-6">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="megabit-left">megabit</span>
+                                                    <input type="text" class="form-control" name="megabit"
+                                                        id="calculaMegabit" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="gigabit-left">gigabit</span>
+                                                    <input type="text" class="form-control" name="gigabit"
+                                                        id="calculaGigabit" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form name="formularioEncerramento" id="formularioEncerramento">
+                                    <div class="encerramentoChamado" id="encerramentoChamado">
+                                        <div class="input-group mb-3">
+                                            <h5 class="input-group">Texto de encerramento básico:</h5>
+                                            <input class="form-control" type="text"
+                                                placeholder="Data e horário da normalização"
+                                                onkeyUp="document.getElementById('textoNormalizacao').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Causa raiz"
+                                                onkeyUp="document.getElementById('causaRaiz').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text"
+                                                placeholder="Localização da falha (preferencialmente com LAT/LONG)"
+                                                onkeyUp="document.getElementById('localizacao').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text"
+                                                placeholder="Equipe(s) envolvida(s) no reparo"
+                                                onkeyUp="document.getElementById('equipe').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Tratativa"
+                                                onkeyUp="document.getElementById('tratativa').innerHTML = this.value">
+                                        </div>
                                     </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <form name="formularioEncerramentoDFL" id="formularioEncerramentoDFL">
+                                    <div class="encerramentoChamadoDFL" id="encerramentoChamadoDFL">
+                                        <div class="input-group mb-3">
+                                            <h5 class="input-group">Texto de encerramento DarkFiber:</h5>
+                                            <input class="form-control" type="text"
+                                                placeholder="Data e horário da normalização"
+                                                onkeyUp="document.getElementById('textoNormalizacaoDFL').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Trecho da falha"
+                                                onkeyUp="document.getElementById('trechoDFL').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Hora da queda"
+                                                onkeyUp="document.getElementById('horaDFL').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Protocolo Altarede"
+                                                onkeyUp="document.getElementById('protocoloAltarede').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Protocolo Operadora"
+                                                onkeyUp="document.getElementById('protocoloOperadora').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text"
+                                                placeholder="Localização da falha (preferencialmente com LAT/LONG)"
+                                                onkeyUp="document.getElementById('localizacaoDFL').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Observações"
+                                                onkeyUp="document.getElementById('observacaoDFL').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Causa raiz"
+                                                onkeyUp="document.getElementById('causaRaizDFL').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text"
+                                                placeholder="Equipe(s) envolvida(s) no reparo"
+                                                onkeyUp="document.getElementById('equipeDFL').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text"
+                                                placeholder="Prazo para a normalização"
+                                                onkeyUp="document.getElementById('prazoDFL').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Tratativa"
+                                                onkeyUp="document.getElementById('tratativaDFL').innerHTML = this.value">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form name="formularioAlerta" id="formularioAlerta">
+                                        <div class="alertas" id="Alerta">
+                                            <div class="input-group mb-3">
+                                                <label class="input-group">Alerta:</label>
+                                                <input class="form-control" type="text"
+                                                    placeholder="Ex.: NOVA FRIBURGO X CACHOEIRAS DE MACACU (ALERTA)"
+                                                    onkeyUp="document.getElementById('tituloAlerta').innerHTML = this.value">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">Resumo:</span>
+                                                </div>
+                                                <textarea type="text" class="form-control"
+                                                    placeholder="Digite informações ou atualizações"
+                                                    onkeyUp="document.getElementById('resumoAlerta').innerHTML = this.value"></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- botão do formulário de alerta -->
+                                        <button type="button" class="btn btn-success"
+                                            onclick="copiaParaClipboard(document.getElementById('textoAlerta').innerText)">
+                                            Copiar texto alertas
+                                        </button>
+                                        <button type="button" class="btn btn-warning" type="reset" id="ResetFormAlerta">
+                                            Apagar texto alerta
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="jumbotron">
-                            <h4>Texto de alerta pra Whatsapp</h4>
-                            <div id="caixaTextoAlerta" style="display: flex;">
-                                <div style="display: flex;">
-                                    <span id="textoAlerta">
-                                        <span>
-                                            ⚠️ *<span id="tituloAlerta"></span>* ⚠️
-                                            <div>*Resumo*: </div>
-                                            <div id="resumoAlerta">
-                                        </span></div></span>
-                                </span>
-                                </span>
-                            </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="jumbotron">
+                        <h4>Texto de alerta pra Whatsapp</h4>
+                        <div id="caixaTextoAlerta" style="display: flex;">
+                            <div style="display: flex;">
+                                <span id="textoAlerta">
+                                    <span>
+                                        ⚠️ *<span id="tituloAlerta"></span>* ⚠️
+                                        <div>*Resumo*: </div>
+                                        <div id="resumoAlerta">
+                                    </span></div></span>
+                            </span>
+                            </span>
                         </div>
-                        <!-- Botão do texto de alerta -->
-                        <button type="button" class="btn btn-success textoAlerta" id="testeTextoAlerta"
-                            onclick="copiaAlerta(textoAlerta)">
-                            Copiar texto alertas
-                        </button>
-                        <button type=" button" class="btn btn-warning" type="reset" id="ResetFormAlerta">
-                            Apagar texto alerta
-                        </button>
-                        <h4 class="input-group">Texto de encerramento de chamados</h4>
-                        <div id="textoEncerramento">
-                            <span>Normalização: </span><span id="textoNormalizacao"></span><br>
-                            <span>Causa Raiz: </span><span id="causaRaiz"></span><br>
-                            <span>Localização: </span><span id="localizacao"></span><br>
-                            <span>Equipe: </span><span id="equipe"></span><br>
-                            <span>Tratativa: </span><span id="tratativa"></span></div>
-                        <button style="float: right; margin-bottom: 25px; margin-top: 20px;" type="button"
-                            class="btn btn-success"
-                            onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerText)">
-                            Copiar texto
-                        </button>
-                        <hr>
-                        <h4 class="input-group">Texto de encerramento de chamados --><b>DFL</b></h4>
-                        <div id="textoEncerramentoDFL">
-                            <span>Normalização: </span><span id="textoNormalizacaoDFL"></span><br>
-                            <span>Trecho: </span><span id="trechoDFL"></span><br>
-                            <span>Hora da queda: </span><span id="horaDFL"></span><br>
-                            <span>Protocolo Altarede: </span><span id="protocoloAltarede"></span><br>
-                            <span>Protocolo Operadora: </span><span id="protocoloOperadora"></span><br>
-                            <span>Localização (Lat, Long): </span><span id="localizacaoDFL"></span><br>
-                            <span>Observação: </span><span id="observacaoDFL"></span><br>
-                            <span>Causa Raiz: </span><span id="causaRaizDFL"></span><br>
-                            <span>Equipe(s): </span><span id="equipeDFL"></span><br>
-                            <span>Prazo de normalização: </span><span id="prazoDFL"></span><br>
-                            <span>Tratativa: </span><span id="tratativaDFL"></span>
-                        </div>
-                        <button style="float: right;" type="button" class="btn btn-success"
-                            onclick="copiaParaClipboard(document.getElementById('textoEncerramentoDFL').innerText)">
-                            Copiar texto
-                        </button>
                     </div>
+                    <!-- Botão do texto de alerta -->
+                    <button type="button" class="btn btn-success textoAlerta" id="testeTextoAlerta"
+                        onclick="copiaAlerta(textoAlerta)">
+                        Copiar texto alertas
+                    </button>
+                    <button type=" button" class="btn btn-warning" type="reset" id="ResetFormAlerta">
+                        Apagar texto alerta
+                    </button>
+                    <h4 class="input-group">Texto de encerramento de chamados</h4>
+                    <div id="textoEncerramento">
+                        <span>Normalização: </span><span id="textoNormalizacao"></span><br>
+                        <span>Causa Raiz: </span><span id="causaRaiz"></span><br>
+                        <span>Localização: </span><span id="localizacao"></span><br>
+                        <span>Equipe: </span><span id="equipe"></span><br>
+                        <span>Tratativa: </span><span id="tratativa"></span></div>
+                    <button style="float: right; margin-bottom: 25px; margin-top: 20px;" type="button"
+                        class="btn btn-success"
+                        onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerText)">
+                        Copiar texto
+                    </button>
+                    <hr>
+                    <h4 class="input-group">Texto de encerramento de chamados --><b>DFL</b></h4>
+                    <div id="textoEncerramentoDFL">
+                        <span>Normalização: </span><span id="textoNormalizacaoDFL"></span><br>
+                        <span>Trecho: </span><span id="trechoDFL"></span><br>
+                        <span>Hora da queda: </span><span id="horaDFL"></span><br>
+                        <span>Protocolo Altarede: </span><span id="protocoloAltarede"></span><br>
+                        <span>Protocolo Operadora: </span><span id="protocoloOperadora"></span><br>
+                        <span>Localização (Lat, Long): </span><span id="localizacaoDFL"></span><br>
+                        <span>Observação: </span><span id="observacaoDFL"></span><br>
+                        <span>Causa Raiz: </span><span id="causaRaizDFL"></span><br>
+                        <span>Equipe(s): </span><span id="equipeDFL"></span><br>
+                        <span>Prazo de normalização: </span><span id="prazoDFL"></span><br>
+                        <span>Tratativa: </span><span id="tratativaDFL"></span>
+                    </div>
+                    <button style="float: right;" type="button" class="btn btn-success"
+                        onclick="copiaParaClipboard(document.getElementById('textoEncerramentoDFL').innerText)">
+                        Copiar texto
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     </div>
