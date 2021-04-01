@@ -18,3 +18,8 @@ function copiaAlerta(texto) {
     document.execCommand("copy");
     window.getSelection().removeAllRanges();
 }
+
+// //Função para resetar o formulário de encerramento básico
+// function newFunction() {
+//     document.getElementById("formularioEncerramento").reset();
+//  }
