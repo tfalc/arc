@@ -130,8 +130,8 @@ div.blueTable {
 #caixaTextoAlerta{
   /* overflow-wrap: break-word; */
   /* word-spacing: normal; */
-  background-color: whitesmoke;
   /* white-space: pre-wrap; */
+  background-color: whitesmoke;
 }
 
 .footer {
