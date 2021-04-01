@@ -135,14 +135,16 @@ div.blueTable {
 }
 
 .footer {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   background: #bababa;
   text-shadow: #e0e0e0 1px 1px 0;
+  font-size: smaller;
   color: #616161;
   text-align: center;
+  margin-top: 5px;
 }
 
 
