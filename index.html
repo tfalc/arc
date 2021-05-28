@@ -40,11 +40,12 @@
                             <hr>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
+                                <!-- Início do formulário de encerramento de chamados -->
                                 <form name="formularioEncerramento" id="formularioEncerramento">
                                     <div class="encerramentoChamado" id="encerramentoChamado">
                                         <div class="input-group mb-3">
-                                            <h5 class="input-group">Texto de encerramento básico:</h5>
+                                            <h5 class="input-group">Encerramento básico:</h5>
                                             <input class="form-control" type="text"
                                                 placeholder="Data e horário da normalização"
                                                 onkeyUp="document.getElementById('textoNormalizacao').innerHTML = this.value">
@@ -68,14 +69,46 @@
                                                 onkeyUp="document.getElementById('tratativa').innerHTML = this.value">
                                         </div>
                                     </div>
-                                    <input type="button" class="btn btn-danger" value="Apagar texto" onClick="this.form.reset()" />
+                                    <input type="button" class="btn btn-danger" value="Apagar texto"
+                                        onClick="this.form.reset()" />
                                 </form>
-                            </div>
-                            <div class="col-md-6">
+                            </div><!-- Fim do formulário de encerramento de chamados -->
+                            <!-- Início do formulário de acionamento de equipes -->
+                            <div class="col-md-4">
+                                <form name="formularioAcionaEquipe" id="formularioAcionaEquipe">
+                                    <div class="formularioAcionaEquipe" id="formularioAcionaEquipe">
+                                        <div class="input-group mb-3">
+                                            <h5 class="input-group">Acionamento de Equipes:</h5>
+                                            <input class="form-control" type="text" placeholder="Número do chamado"
+                                                onkeyUp="document.getElementById('chamadoNum').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Horário da falha"
+                                                onkeyUp="document.getElementById('HoraFalha').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Qual interface do POP"
+                                                onkeyUp="document.getElementById('ifPOP').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="POP"
+                                                onkeyUp="document.getElementById('nomePOP').innerHTML = this.value">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Endereço do cliente"
+                                                onkeyUp="document.getElementById('clienteEndereco').innerHTML = this.value">
+                                        </div>
+                                        <input type="button" class="btn btn-danger" value="Apagar texto"
+                                            onClick="this.form.reset()" />
+                                    </div>
+                                </form>
+                            </div><!-- Fim do formulário de acionamento de equipes -->
+                            <div class="col-md-4">
+                                <!-- Início do formulário de encerramento de chamados Dark Fiber -->
                                 <form name="formularioEncerramentoDFL" id="formularioEncerramentoDFL">
                                     <div class="encerramentoChamadoDFL" id="encerramentoChamadoDFL">
                                         <div class="input-group mb-3">
-                                            <h5 class="input-group">Texto de encerramento DarkFiber:</h5>
+                                            <h5 class="input-group">Encerramento DarkFiber:</h5>
                                             <input class="form-control" type="text"
                                                 placeholder="Data e horário da normalização"
                                                 onkeyUp="document.getElementById('textoNormalizacaoDFL').innerHTML = this.value">
@@ -123,10 +156,12 @@
                                             <input class="form-control" type="text" placeholder="Tratativa"
                                                 onkeyUp="document.getElementById('tratativaDFL').innerHTML = this.value">
                                         </div>
-                                        <input type="button" class="btn btn-danger" value="Apagar texto" onClick="this.form.reset()" />
+                                        <input type="button" class="btn btn-danger" value="Apagar texto"
+                                            onClick="this.form.reset()" />
                                     </div>
                                 </form>
-                            </div>
+                            </div><!-- Fim do formulário de encerramento de chamados Dark Fiber -->
+
                         </div>
                         <div class="col-md-12">
                             <hr>
@@ -154,7 +189,8 @@
                                             onclick="copiaParaClipboard(document.getElementById('textoAlerta').innerText)">
                                             Copiar texto alertas
                                         </button>
-                                        <button type="button" class="btn btn-warning" type="reset" id="ResetFormAlerta">
+                                        <button type="button" class="btn btn-warning" type="reset" id="ResetFormAlerta"
+                                            onclick="this.form.reset()">
                                             Apagar texto alerta
                                         </button>
                                     </form>
@@ -163,6 +199,53 @@
                         </div>
                     </div>
                     <div class="col-md-4">
+                        <h4 class="input-group">Encerramento de chamados</h4>
+                        <div id="textoEncerramento" class="jumbotron">
+                            <span>*Normalização:* </span><span id="textoNormalizacao"></span><br>
+                            <span>*Causa Raiz:* </span><span id="causaRaiz"></span><br>
+                            <span>*Localização:* </span><span id="localizacao"></span><br>
+                            <span>*Equipe:* </span><span id="equipe"></span><br>
+                            <span>*Tratativa:* </span><span id="tratativa"></span>
+                            <button style="float: right; margin-bottom: 25px; margin-top: 20px;" type="button"
+                                class="btn btn-success"
+                                onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerText)">
+                                Copiar texto
+                            </button>
+                        </div>
+                        <hr>
+                        <h4 class="input-group">Acionamento de equipes</h4>
+                        <div id="acionaEquipe">
+                            <span>*Número do chamado:* </span><span id="chamadoNum"></span><br>
+                            <span>*Hora da falha:* </span><span id="HoraFalha"></span><br>
+                            <span>*Porta do switch:* </span><span id="ifPOP"></span><br>
+                            <span>*Qual POP:* </span><span id="nomePOP"></span><br>
+                            <span>*Endereço:* </span><span id="clienteEndereco"></span>
+                            <button style="float: right; margin-bottom: 25px; margin-top: 20px;" type="button"
+                                class="btn btn-success"
+                                onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerText)">
+                                Copiar texto
+                            </button>
+                        </div>
+                        <hr>
+                        <h4 class="input-group">Encerramento de chamados --><b>DFL</b></h4>
+                        <div id="textoEncerramentoDFL" class="jumbotron">
+                            <span>*Normalização:* </span><span id="textoNormalizacaoDFL"></span><br>
+                            <span>*Trecho:* </span><span id="trechoDFL"></span><br>
+                            <span>*Hora da queda:* </span><span id="horaDFL"></span><br>
+                            <span>*Protocolo Altarede:* </span><span id="protocoloAltarede"></span><br>
+                            <span>*Protocolo Operadora:* </span><span id="protocoloOperadora"></span><br>
+                            <span>*Localização (Lat, Long):* </span><span id="localizacaoDFL"></span><br>
+                            <span>*Observação:* </span><span id="observacaoDFL"></span><br>
+                            <span>*Causa Raiz:* </span><span id="causaRaizDFL"></span><br>
+                            <span>*Equipe(s):* </span><span id="equipeDFL"></span><br>
+                            <span>*Prazo de normalização:* </span><span id="prazoDFL"></span><br>
+                            <span>*Tratativa:* </span><span id="tratativaDFL"></span>
+                            <button style="float: right;" type="button" class="btn btn-success"
+                                onclick="copiaParaClipboard(document.getElementById('textoEncerramentoDFL').innerText)">
+                                Copiar texto
+                            </button>
+                        </div>
+                        <hr>
                         <div class="jumbotron">
                             <h4>Texto de alerta pra Whatsapp</h4>
                             <div id="caixaTextoAlerta" style="display: flex;">
@@ -184,37 +267,6 @@
                         </button>
                         <button type=" button" class="btn btn-warning" type="reset" id="ResetFormAlerta">
                             Apagar texto alerta
-                        </button>
-                        <h4 class="input-group">Texto de encerramento de chamados</h4>
-                        <div id="textoEncerramento">
-                            <span>*Normalização:* </span><span id="textoNormalizacao"></span><br>
-                            <span>*Causa Raiz:* </span><span id="causaRaiz"></span><br>
-                            <span>*Localização:* </span><span id="localizacao"></span><br>
-                            <span>*Equipe:* </span><span id="equipe"></span><br>
-                            <span>*Tratativa:* </span><span id="tratativa"></span></div>
-                        <button style="float: right; margin-bottom: 25px; margin-top: 20px;" type="button"
-                            class="btn btn-success"
-                            onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerText)">
-                            Copiar texto
-                        </button>
-                        <hr>
-                        <h4 class="input-group">Texto de encerramento de chamados --><b>DFL</b></h4>
-                        <div id="textoEncerramentoDFL">
-                            <span>*Normalização:* </span><span id="textoNormalizacaoDFL"></span><br>
-                            <span>*Trecho:* </span><span id="trechoDFL"></span><br>
-                            <span>*Hora da queda:* </span><span id="horaDFL"></span><br>
-                            <span>*Protocolo Altarede:* </span><span id="protocoloAltarede"></span><br>
-                            <span>*Protocolo Operadora:* </span><span id="protocoloOperadora"></span><br>
-                            <span>*Localização (Lat, Long):* </span><span id="localizacaoDFL"></span><br>
-                            <span>*Observação:* </span><span id="observacaoDFL"></span><br>
-                            <span>*Causa Raiz:* </span><span id="causaRaizDFL"></span><br>
-                            <span>*Equipe(s):* </span><span id="equipeDFL"></span><br>
-                            <span>*Prazo de normalização:* </span><span id="prazoDFL"></span><br>
-                            <span>*Tratativa:* </span><span id="tratativaDFL"></span>
-                        </div>
-                        <button style="float: right;" type="button" class="btn btn-success"
-                            onclick="copiaParaClipboard(document.getElementById('textoEncerramentoDFL').innerText)">
-                            Copiar texto
                         </button>
                     </div>
                 </div>

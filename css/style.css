@@ -23,12 +23,12 @@
 
 #textoEncerramento {
   width: 100%;
-  padding: 10px 0px;
+  padding: 5px;
   text-align: justify;
   background-color: rgb(190, 223, 243);
   margin-top: 5px;
   display: block;
-  border: 5px double #8497a3;
+  border: 2px dotted #8497a3;
   margin-bottom: 5px;
 }
 
@@ -115,6 +115,14 @@ div.blueTable {
   word-wrap: auto;
   white-space: pre-wrap;
 }*/
+
+#acionaEquipe{
+  border: 2px dotted #ccc;
+  padding: 5px;
+  background-color: blanchedalmond;
+  border-radius: 10px;
+
+}
 
 #textoEncerramentoDFL {
   border: 2px dashed #1C6EA4;
