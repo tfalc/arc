@@ -32,6 +32,10 @@
   margin-bottom: 5px;
 }
 
+#clearfix{
+  display: inline-block;
+}
+
 div.blueTable {
   background-color: #EEEEEE;
   width: 100%;
@@ -121,10 +125,17 @@ div.blueTable {
   padding: 5px;
   background-color: blanchedalmond;
   border-radius: 10px;
-
+  margin: 5px 0;
 }
 
 #textoEncerramentoDFL {
+  border: 2px dashed #1C6EA4;
+  border-radius: 30px;
+  padding: 8px;
+  margin-bottom: 5px;
+}
+
+#textoAlerta {
   border: 2px dashed #1C6EA4;
   border-radius: 30px;
   padding: 8px;

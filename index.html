@@ -98,6 +98,10 @@
                                             <input class="form-control" type="text" placeholder="Endereço do cliente"
                                                 onkeyUp="document.getElementById('clienteEndereco').innerHTML = this.value">
                                         </div>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" type="text" placeholder="Observação"
+                                                onkeyUp="document.getElementById('clienteObservacao').innerHTML = this.value">
+                                        </div>
                                         <input type="button" class="btn btn-danger" value="Apagar texto"
                                             onClick="this.form.reset()" />
                                     </div>
@@ -206,12 +210,12 @@
                             <span>*Localização:* </span><span id="localizacao"></span><br>
                             <span>*Equipe:* </span><span id="equipe"></span><br>
                             <span>*Tratativa:* </span><span id="tratativa"></span>
-                            <button style="float: right; margin-bottom: 25px; margin-top: 20px;" type="button"
-                                class="btn btn-success"
-                                onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerText)">
-                                Copiar texto
-                            </button>
                         </div>
+                        <button style="float: right;" type="button" class="btn btn-success"
+                            onclick="copiaParaClipboard(document.getElementById('textoEncerramento').innerText)">
+                            Copiar texto
+                        </button>
+                        <div class="clearfix"></div>
                         <hr>
                         <h4 class="input-group">Acionamento de equipes</h4>
                         <div id="acionaEquipe">
@@ -219,13 +223,14 @@
                             <span>*Hora da falha:* </span><span id="HoraFalha"></span><br>
                             <span>*Porta do switch:* </span><span id="ifPOP"></span><br>
                             <span>*Qual POP:* </span><span id="nomePOP"></span><br>
-                            <span>*Endereço:* </span><span id="clienteEndereco"></span>
-                            <button style="float: right; margin-bottom: 25px; margin-top: 20px;" type="button"
-                                class="btn btn-success"
-                                onclick="copiaParaClipboard(document.getElementById('acionaEquipe').innerText)">
-                                Copiar texto
-                            </button>
+                            <span>*Endereço:* </span><span id="clienteEndereco"></span><br>
+                            <span>*Observação:* </span><span id="clienteObservacao"></span>
                         </div>
+                        <button style="float: right;" type="button" class="btn btn-success"
+                            onclick="copiaParaClipboard(document.getElementById('acionaEquipe').innerText)">
+                            Copiar texto
+                        </button>
+                        <div class="clearfix"></div>
                         <hr>
                         <h4 class="input-group">Encerramento de chamados --><b>DFL</b></h4>
                         <div id="textoEncerramentoDFL" class="jumbotron">
@@ -240,33 +245,23 @@
                             <span>*Equipe(s):* </span><span id="equipeDFL"></span><br>
                             <span>*Prazo de normalização:* </span><span id="prazoDFL"></span><br>
                             <span>*Tratativa:* </span><span id="tratativaDFL"></span>
-                            <button style="float: right;" type="button" class="btn btn-success"
-                                onclick="copiaParaClipboard(document.getElementById('textoEncerramentoDFL').innerText)">
-                                Copiar texto
-                            </button>
                         </div>
+                        <button style="float: right; type=" button" class="btn btn-success"
+                            onclick="copiaParaClipboard(document.getElementById('textoEncerramentoDFL').innerText)">
+                            Copiar texto
+                        </button>
+                        <div class="clearfix"></div>
                         <hr>
-                        <div class="jumbotron">
-                            <h4>Texto de alerta pra Whatsapp</h4>
-                            <div id="caixaTextoAlerta" style="display: flex;">
-                                <div style="display: flex;">
-                                    <span id="textoAlerta">
-                                        <span>
-                                            ⚠️ *<span id="tituloAlerta"></span>* ⚠️
-                                            <div>*Resumo*: </div>
-                                            <div id="resumoAlerta">
-                                        </span></div></span>
-                                </span>
-                                </span>
-                            </div>
+                        <h4>Texto de alerta pra Whatsapp</h4>
+                        <div id="textoAlerta" class="jumbotron">
+                            <span>⚠️ *<span id="tituloAlerta"></span>* ⚠️</span><br>
+                            <span>*Resumo*: </span>
+                            <span id="resumoAlerta"></span>
                         </div>
                         <!-- Botão do texto de alerta -->
                         <button type="button" class="btn btn-success textoAlerta" id="testeTextoAlerta"
                             onclick="copiaAlerta(textoAlerta)">
                             Copiar texto alertas
-                        </button>
-                        <button type=" button" class="btn btn-warning" type="reset" id="ResetFormAlerta">
-                            Apagar texto alerta
                         </button>
                     </div>
                 </div>
